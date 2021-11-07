@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl" class="h-100">
     <head>
         <title>Przepisowo - @yield('title')</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -10,7 +11,7 @@
         <div class='main-container container'>
             <div class="main-header row align-items-center">
                 <div class="col" style="width: calc(100% - 280px); flex: 0 0 auto;">
-                    <a href="/"> <img src="{{ url('storage/images/przepisowo.png') }}"></a>
+                    <a href="/"> <img src="{{ url('storage/images/przepisowo.png') }}" alt="logo"></a>
                 </div>
                 @guest
                     <div class="col" style="width:130px; flex: 0 0 auto;">
