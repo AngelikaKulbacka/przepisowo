@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', 'App\Http\Controllers\MainController@login')->name('login');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +22,11 @@ Route::get('/', function () {
 
 Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('auth.login');
 Route::post('/register', 'App\Http\Controllers\AuthController@register')->name('auth.register');
+
+Route::get('/', 'App\Http\Controllers\MainController@index')->name('welcome');
+
+Route::get('/email/verify/{id}/{hash}', 'App\Http\Controllers\AuthController@verify')->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('/email/verify', 'App\Http\Controllers\AuthController@verifyNotice')->middleware('auth')->name('verification.notice');
+Route::post('/email/verify/resend', 'App\Http\Controllers\AuthController@verifyResend')->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('auth.logout');
