@@ -15,9 +15,9 @@ class AuthController extends Controller
     //
     public function register(Request $request) {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'lastName' => 'required',
-            'login' => 'required|unique:uzytkownicy|min:8',
+            'name' => 'required|regex:/(^[A-Za-z]+$)+/',
+            'lastName' => 'required|regex:/(^[A-Za-z]+$)+/',
+            'login' => 'required|unique:uzytkownicy|min:8|regex:/(^[A-Za-z0-9_.-]+$)+/',
             'email' => 'required|email|unique:uzytkownicy',
             'password' => 'required|min:8',
             'passwordConfirm' => 'required|same:password'

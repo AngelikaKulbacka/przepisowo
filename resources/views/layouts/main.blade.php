@@ -9,15 +9,15 @@
     </head>
     <body class="h-100">
         <div class='main-container container'>
-            <div class="main-header row align-items-center">
-                <div class="col" style="width: calc(100% - 280px); flex: 0 0 auto;">
+            <div class="main-header row justify-content-around align-items-center">
+                <div class="col-md-12 col-12 col-lg-8 my-3 text-center text-lg-start" style="flex: 0 0 auto;">
                     <a href="/"> <img src="{{ url('storage/images/przepisowo.png') }}" alt="logo"></a>
                 </div>
                 @guest
-                    <div class="col" style="width:130px; flex: 0 0 auto;">
+                    <div class="col-md-6 col-6 col-lg-2 my-3" style="width:130px; flex: 0 0 auto;">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Zaloguj się</button>
                     </div>
-                    <div class="col" style="width:150px; flex: 0 0 auto;">
+                    <div class="col-md-6 col-6 col-lg-2 my-3" style="width:150px; flex: 0 0 auto;">
                         <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signupModal">Zarejestruj się</button>
                     </div>
                 @endguest

@@ -29,4 +29,24 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->haslo;
     }
+
+    public function getPrintableName(): string {
+        return "{$this->imie} {$this->nazwisko}";
+    }
+
+    public function recepies() {
+        return $this->hasMany(Recipe::class, 'id_uzytkownika');
+    }
+
+    public function photo() {
+        return $this->belongsTo(Photo::class, 'id_zdjecia');
+    }
+
+    public function public() {
+        return $this->recepies()->where('czy_prywatne', false);
+    }
+
+    public function private() {
+        return $this->recepies()->where('czy_prywatne', true);
+    }
 }

@@ -30,3 +30,12 @@ Route::get('/email/verify', 'App\Http\Controllers\AuthController@verifyNotice')-
 Route::post('/email/verify/resend', 'App\Http\Controllers\AuthController@verifyResend')->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('auth.logout');
+
+Route::get('/przepis/edycja/{recipe}', 'App\Http\Controllers\RecipeController@edit')->name('recipe.edit')->middleware('userIsOwner');
+Route::patch('/przepis/edycja/{recipe}', 'App\Http\Controllers\RecipeController@update')->name('recipe.update')->middleware('userIsOwner');
+
+Route::get('/przepis/dodaj', 'App\Http\Controllers\RecipeController@create')->name('przepis.create');
+Route::post('/przepis/dodaj', 'App\Http\Controllers\RecipeController@add')->name('przepis.add');
+Route::post('/przepis/delete/{recipe}', 'App\Http\Controllers\RecipeController@delete')->name('recipe.delete')->middleware('userIsOwner');
+Route::get('/przepis/moje', 'App\Http\Controllers\MyRecipesController@index')->name('przepis.moje');
+Route::get('/przepis/{recipe}', 'App\Http\Controllers\RecipeController@index')->name('recipe.details');
