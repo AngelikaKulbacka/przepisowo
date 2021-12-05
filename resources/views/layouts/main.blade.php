@@ -8,39 +8,49 @@
         <script src="/js/app.js"></script>
     </head>
     <body class="h-100">
-        <div class='main-container container'>
-            <div class="main-header row justify-content-around align-items-center">
-                <div class="col-md-12 col-12 col-lg-8 my-3 text-center text-lg-start" style="flex: 0 0 auto;">
-                    <a href="/"> <img src="{{ url('storage/images/przepisowo.png') }}" alt="logo"></a>
-                </div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-light pb-0" >
+        <div class="main-container main-header container-fluid">
+          <div class="col" style="width: calc(100% - 280px); flex: 0 0 auto;">
+          <a class="navbar-brand" href="/"> <img src="{{ url('storage/images/przepisowo.png') }}" alt="logo"></a>
+          </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <ul class="nav navbar-nav-right justify-content-end">
                 @guest
-                    <div class="col-md-6 col-6 col-lg-2 my-3" style="width:130px; flex: 0 0 auto;">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Zaloguj się</button>
+                <div class="col-md-6 col-6 col-lg-2 my-3" style="width:130px; flex: 0 0 auto;">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Zaloguj się</button>
+                </div>
+                <div class="col-md-6 col-6 col-lg-2 my-3" style="width:150px; flex: 0 0 auto;">
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signupModal">Zarejestruj się</button>
+                </div>
+            @endguest
+            @auth
+                <div class="col-md-6 col-6 col-lg-2 my-3 mr-5" style="width:50px; flex: 0 0 auto;">
+                    <a class="btn btn-primary" href="/przepis/ulubione"><i class="fas fa-heart"></i></a>
+                </div>
+                <div class="col-md-6 col-6 col-lg-2 my-3 mr-5" style="width:50px; flex: 0 0 auto;">
+                    <a class="btn btn-light" href="/profil"><i class="fas fa-user"></i></a>
+                </div>
+                <div class="col-md-6 col-6 col-lg-2 my-3 mr-5" style="width:50px; flex: 0 0 auto;">
+                    <div class="dropdown">
+                        <button class="btn btn-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item" href="/profil">Mój profil</a></li>
+                            <li><a class="dropdown-item" href="/przepis/ulubione">Ulubione</a></li>
+                            <li><a class="dropdown-item" href="/przepis/moje">Moje przepisy</a></li>
+                            <li><a class="dropdown-item" href="{{route('auth.logout')}}">Wyloguj się</a></li>
+                        </ul>
                     </div>
-                    <div class="col-md-6 col-6 col-lg-2 my-3" style="width:150px; flex: 0 0 auto;">
-                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signupModal">Zarejestruj się</button>
-                    </div>
-                @endguest
-                @auth
-                    <div class="col" style="width:50px; flex: 0 0 auto;">
-                        <a class="btn btn-primary" href="/przepis/ulubione"><i class="fas fa-heart"></i></a>
-                    </div>
-                    <div class="col" style="width:50px; flex: 0 0 auto;">
-                        <a class="btn btn-light" href="/profil"><i class="fas fa-user"></i></a>
-                    </div>
-                    <div class="col" style="width:50px; flex: 0 0 auto;">
-                        <div class="dropdown">
-                            <button class="btn btn-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></button>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                                <li><a class="dropdown-item" href="/profil">Mój profil</a></li>
-                                <li><a class="dropdown-item" href="/przepis/ulubione">Ulubione</a></li>
-                                <li><a class="dropdown-item" href="/przepis/moje">Moje przepisy</a></li>
-                                <li><a class="dropdown-item" href="{{route('auth.logout')}}">Wyloguj się</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
+            @endauth
+                    </ul> 
             </div>
+        </div>
+        </div>
+      </nav>
+        <div class='main-container container'>
             <div class="row" style="min-height: 100%">
                 <div class="col container py-5" style="max-width: 1320px; background: #131C38; color: white;">
                     @yield('content')
