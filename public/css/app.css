@@ -76,12 +76,8 @@
     width: 100%;
 }
 
-.navbar-brand
-{
-  font-family: 'Lato', sans-serif;
-  color:#e53445!important;
-  font-size: calc(40% + 4vw);
-  margin: 0px;
+img#logo{
+    max-width: calc(49% + 70px)
 }
 
 .dropdown-menu-dark {

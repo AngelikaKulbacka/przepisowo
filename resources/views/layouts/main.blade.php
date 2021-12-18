@@ -11,11 +11,11 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-light pb-0" >
         <div class="main-container main-header container-fluid">
           <div class="col">
-          <a class="navbar-brand" >PPRZEPISOWO</a>
-          </div>
+          <a class="navbar-brand" href="/"> <img id="logo" src="{{ url('storage/images/przepisowo.png') }}" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> 
+          </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
               <ul class="nav navbar-nav-right justify-content-end">
                 @guest
