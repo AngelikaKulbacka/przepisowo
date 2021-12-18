@@ -8,10 +8,10 @@
         <script src="/js/app.js"></script>
     </head>
     <body class="h-100">
-      <nav class="navbar navbar-expand-md navbar-dark bg-light pb-0" >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light pb-0" >
         <div class="main-container main-header container-fluid">
-          <div class="col" style="width: calc(100% - 280px); flex: 0 0 auto;">
-          <a class="navbar-brand" href="/"> <img src="{{ url('storage/images/przepisowo.png') }}" alt="logo"></a>
+          <div class="col">
+          <a class="navbar-brand" >PPRZEPISOWO</a>
           </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -19,12 +19,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
               <ul class="nav navbar-nav-right justify-content-end">
                 @guest
+                <li>
                 <div class="col-md-6 col-6 col-lg-2 my-3" style="width:130px; flex: 0 0 auto;">
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Zaloguj się</button>
                 </div>
+                </li>
+                <li>
                 <div class="col-md-6 col-6 col-lg-2 my-3" style="width:150px; flex: 0 0 auto;">
                     <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signupModal">Zarejestruj się</button>
                 </div>
+                </li>
             @endguest
             @auth
                 <div class="col-md-6 col-6 col-lg-2 my-3 mr-5" style="width:50px; flex: 0 0 auto;">
@@ -47,7 +51,6 @@
             @endauth
                     </ul> 
             </div>
-        </div>
         </div>
       </nav>
         <div class='main-container container'>

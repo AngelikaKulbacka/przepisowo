@@ -60,6 +60,8 @@
     min-height: 100%; 
     background: #131C38; 
     max-width:unset;
+    font-size: calc(34% + 2.5vw);
+    text-align: center;
 }
 
 .main-header {
@@ -72,6 +74,14 @@
     position: fixed; 
     bottom: 0; 
     width: 100%;
+}
+
+.navbar-brand
+{
+  font-family: 'Lato', sans-serif;
+  color:#e53445!important;
+  font-size: calc(40% + 4vw);
+  margin: 0px;
 }
 
 .dropdown-menu-dark {
